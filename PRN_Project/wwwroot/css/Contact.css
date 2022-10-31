@@ -1,0 +1,50 @@
+﻿html {
+    scroll-behavior: smooth;
+}
+
+.main.text-center {
+    margin-top: 48px;
+}
+
+.col-md-4 a {
+    color: black;
+}
+
+    .col-md-4 a > i:hover {
+        color: #ccc;
+    }
+
+.col-md-4 i {
+    font-size: 40px;
+    color: black;
+}
+
+.main.text-center > p {
+    padding-bottom: 40px;
+}
+
+.col-md-4 p {
+    padding-bottom: 12px;
+}
+
+.main.text-center .row {
+    padding-top: 48px !important;
+}
+
+.col-md-4 h5 {
+    padding-top: 12px;
+}
+
+
+.main.text-center {
+    border: 1px solid #ccc;
+}
+
+i.fa.fa-search {
+    padding: 10px 10px;
+}
+
+
+.container.Contact {
+    height: 400px;
+}

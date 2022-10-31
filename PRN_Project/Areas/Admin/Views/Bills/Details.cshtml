@@ -1,0 +1,39 @@
+﻿@model PRN_Project.Models.Bill
+
+
+@{
+    ViewData["Title"] = "Detail Bill #" + Model.BillId;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Detail> details = ViewBag.ChiTiet;
+}
+
+<h1>Details</h1>
+
+<table id="table" class="table">
+    <thead>
+        <tr>
+            <th>ID Product</th>
+
+            <th>Price</th>
+            <th>Amount</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (details != null && details.Count() > 0)
+        {
+            int i = 1;
+            foreach (var item in details)
+            {
+                <tr>
+
+                    <td>@item.IdProduct</td>
+
+                    <td>@item.Price</td>
+                    <td>@item.Amount</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

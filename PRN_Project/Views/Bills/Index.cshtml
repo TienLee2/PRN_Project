@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PRN_Project.Models.Bill>
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="table-responsive" style="width:80%; margin: 0 auto; margin-bottom: 24px">
+    <h1 class="text-center">Customer Bills</h1>
+    <table class="table" id="table" >
+        <thead >
+            <tr class="text-center">
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Total)
+                </th>
+                <th>
+                    ID Account
+                </th>
+                <th></th>
+
+               
+            </tr>
+        </thead>
+        <tbody >
+            @foreach (var item in Model)
+            {
+                if (@item.IdAccount == @Context.Session.GetInt32("id"))
+                {
+                    <tr class="text-center">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdAccountNavigation.Id)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.BillId">Details</a>
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<PRN_Project.Models.Account>
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 class="text-center" style="color:coral; padding-bottom: 12px">My Information</h1>
+<div class="table-responsive" style="width:80%; margin: 0 auto; margin-bottom: 24px">
+<table class="table e-commerce-table" id="table">
+    <thead>
+        <tr class="text-center" style="border-width: 2px">
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BonusPoint)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (@item.Username == @Context.Session.GetString("username"))
+            {
+                <tr class="text-center">
+                        <td style="border-right-width: 2px">
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                        <td style="border-right-width: 2px">
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                        <td style="border-right-width: 2px">
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                        <td style="border-right-width: 2px">
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                        <td style="border-right-width: 2px">
+                        @Html.DisplayFor(modelItem => item.CustomerType)
+                    </td>
+                        <td style="border-right-width: 2px">
+                        @Html.DisplayFor(modelItem => item.BonusPoint)
+                    </td>
+                        <td style="border-right-width: 2px">
+
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+</div>
+
+
+
+

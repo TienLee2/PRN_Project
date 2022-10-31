@@ -78,7 +78,10 @@
                                                 <strong style="color: red; font-size: large; font-family: cursive;  ">@item.Price$</strong>
                                             </div>
                                             <div class="col">
-                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                                <a class="btn btn-success btn-block"
+                                                asp-controller="ShoppingCart"
+                                            asp-action="AddToCart"
+                                            asp-route-id="@item.Id">Add to cart</a>
                                             </div>
                                         </div>
                                     }
